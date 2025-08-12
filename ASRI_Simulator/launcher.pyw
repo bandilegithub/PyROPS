@@ -40,11 +40,12 @@ x = 540
 y = 200
 os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (x,y)
 
-def LoadFile():
+def LoadFile() :
     filepath = filedialog.askopenfilename(initialdir="C:\\Users\\",filetypes= (("text files","*.txt"),("all files","*.*")))
     file = open(filepath,'r')
     print(file.read())
     file.close()
+
 
 def SaveFile():
     file = filedialog.asksaveasfile(initialdir="C:\\Users\\",filetypes= (("text files","*.txt"),("all files","*.*")))
