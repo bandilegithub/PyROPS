@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6e6d1cb-df86-46f1-9ef5-1a7d017c44ce" name="Changes" comment="add new ASRI Simulator core modules and GUI components">
+    <list default="true" id="c6e6d1cb-df86-46f1-9ef5-1a7d017c44ce" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASRI_Simulator/launcher.pyw" beforeDir="false" afterPath="$PROJECT_DIR$/ASRI_Simulator/launcher.pyw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASRI_Simulator_New/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ASRI_Simulator_New/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASRI_Simulator_New/config/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ASRI_Simulator_New/config/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASRI_Simulator_New/config/settings_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/ASRI_Simulator_New/config/settings_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASRI_Simulator_New/gui/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/ASRI_Simulator_New/gui/main_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASRI_Simulator_New/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ASRI_Simulator_New/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASRI_Simulator_New/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ASRI_Simulator_New/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASRI_Simulator_New/models/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ASRI_Simulator_New/models/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASRI_Simulator_New/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ASRI_Simulator_New/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASRI_Simulator_New/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/ASRI_Simulator_New/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASRI_Simulator/Path.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ASRI_Simulator/Path.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,15 +104,6 @@
       <option name="presentableId" value="Default" />
       <updated>1754431550507</updated>
     </task>
-    <task id="LOCAL-00001" summary="add new ASRI Simulator core modules and GUI components">
-      <option name="closed" value="true" />
-      <created>1754793109021</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1754793109021</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,7 +119,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add initial project configuration and dependencies" />
-    <MESSAGE value="add new ASRI Simulator core modules and GUI components" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new ASRI Simulator core modules and GUI components" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

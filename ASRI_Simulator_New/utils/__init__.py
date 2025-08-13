@@ -2,7 +2,7 @@
 Utility functions and helpers for the ASRI Simulator.
 """
 
-from .utils import *
+from .helpers import *
 
 __all__ = [
     'get_project_root',

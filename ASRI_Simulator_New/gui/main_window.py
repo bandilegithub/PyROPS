@@ -6,7 +6,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 import webbrowser
 import os
-from typing import Any
+from typing import Dict, Any
 from config.settings_manager import AppSettingsManager
 from PIL import Image, ImageTk
 
@@ -78,24 +78,6 @@ class ASRIMainWindow:
         # Create beautiful organized button sections
         self.create_button_sections(main_frame)
 
-    def create_text_header(self, parent):
-        """Create a text header as fallback when image is not available"""
-        header_frame = tk.Frame(parent, bg='#f5f5f5')
-        header_frame.pack(pady=(20, 10))
-
-        title_label = tk.Label(header_frame,
-                              text="ASRI SIMULATOR",
-                              font=('Arial', 24, 'bold'),
-                              fg='#2c3e50',
-                              bg='#f5f5f5')
-        title_label.pack()
-
-        subtitle_label = tk.Label(header_frame,
-                                 text="PyROPS v2.4.0 - Propulsion and Automation Simulation",
-                                 font=('Arial', 12),
-                                 fg='#7f8c8d',
-                                 bg='#f5f5f5')
-        subtitle_label.pack()
     def create_button_sections(self, parent):
         """Create organized button sections"""
         # Main container for buttons
@@ -243,8 +225,7 @@ class ASRIMainWindow:
         """Open settings window"""
         SimulationWindow(self.root, self.settings_manager)
 
-    @staticmethod
-    def load_file():
+    def load_file(self):
         """Load a project file"""
         filepath = filedialog.askopenfilename(
             title="Load Project File",
@@ -341,13 +322,13 @@ class SimulationWindow:
         self.create_control_buttons(control_frame)
 
     def create_simulation_tab(self, notebook):
-        """Create simulation parameters tab - core parameters needed to run simulation"""
-        frame = ttk.Frame(notebook)
-        notebook.add(frame, text="Simulation")
+        """Create the simulation parameters tab"""
+        tab = ttk.Frame(notebook)
+        notebook.add(tab, text="Simulation Parameters")
 
         # Create scrollable frame
-        canvas = tk.Canvas(frame)
-        scrollbar = ttk.Scrollbar(frame, orient="vertical", command=canvas.yview)
+        canvas = tk.Canvas(tab, bg='#f8f9fa')
+        scrollbar = ttk.Scrollbar(tab, orient="vertical", command=canvas.yview)
         scrollable_frame = ttk.Frame(canvas)
 
         scrollable_frame.bind(
@@ -358,48 +339,19 @@ class SimulationWindow:
         canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
         canvas.configure(yscrollcommand=scrollbar.set)
 
+        # Basic simulation parameters
+        self.create_parameter_section(scrollable_frame, "Basic Parameters", [
+            ("Maximum Simulation Time", "time_max", 1200.0, "s"),
+            ("Time Step Size", "time_step", 0.02, "s"),
+            ("Launch Latitude", "launch_lat", -34.600, "deg"),
+            ("Launch Longitude", "launch_lon", 20.300, "deg"),
+            ("Launch Altitude", "launch_alt", 0.0, "m"),
+            ("Launch Elevation", "launch_elev", 80.0, "deg"),
+            ("Launch Azimuth", "launch_azim", -100.0, "deg"),
+        ])
+
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
-
-        self.sim_vars = {}
-
-        # Core Simulation Parameters - Essential for running any simulation
-        sim_frame = ttk.LabelFrame(scrollable_frame, text="Core Simulation Parameters", padding="10")
-        sim_frame.grid(row=0, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=5)
-
-        sim_params = [
-            ("Maximum Simulation Time", "max_simulation_time", "s", 1200.0),
-            ("Time Step Size", "time_step_size", "s", 0.02),
-            ("Number of Runs", "number_runs", "-", 1),
-            ("Body State", "body_state", "-", 1),
-        ]
-
-        for i, (label, var_name, unit, default) in enumerate(sim_params):
-            ttk.Label(sim_frame, text=label).grid(row=i, column=0, sticky=tk.W, pady=2)
-            self.sim_vars[var_name] = tk.StringVar(value=str(default))
-            entry = ttk.Entry(sim_frame, textvariable=self.sim_vars[var_name], width=15, justify='right')
-            entry.grid(row=i, column=1, padx=5, pady=2)
-            ttk.Label(sim_frame, text=unit).grid(row=i, column=2, sticky=tk.W, pady=2)
-
-        # Launch Conditions - Where and how the rocket is launched
-        launch_frame = ttk.LabelFrame(scrollable_frame, text="Launch Conditions", padding="10")
-        launch_frame.grid(row=1, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=5)
-
-        launch_params = [
-            ("Launch Latitude", "launch_latitude", "deg", -34.600),
-            ("Launch Longitude", "launch_longitude", "deg", 20.300),
-            ("Launch Altitude", "launch_altitude", "m", 0.000),
-            ("Launch Elevation", "launch_elevation", "deg", 80.000),
-            ("Launch Azimuth", "launch_azimuth", "deg", -100.000),
-            ("Launch Rail Length", "launch_rail_length", "m", 7.0),
-        ]
-
-        for i, (label, var_name, unit, default) in enumerate(launch_params):
-            ttk.Label(launch_frame, text=label).grid(row=i, column=0, sticky=tk.W, pady=2)
-            self.sim_vars[var_name] = tk.StringVar(value=str(default))
-            entry = ttk.Entry(launch_frame, textvariable=self.sim_vars[var_name], width=15, justify='right')
-            entry.grid(row=i, column=1, padx=5, pady=2)
-            ttk.Label(launch_frame, text=unit).grid(row=i, column=2, sticky=tk.W, pady=2)
 
     def create_rocket_tab(self, notebook):
         """Create the rocket parameters tab"""

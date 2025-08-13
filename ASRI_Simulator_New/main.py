@@ -21,4 +21,3 @@ if __name__ == "__main__":
         print(f"Application error: {e}")
         input("Press Enter to exit...")
         sys.exit(1)
-
