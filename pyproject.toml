@@ -4,7 +4,7 @@ version = "2.3.12"
 description = "Python Rocket Performance Simulator (PyROPS)"
 authors = ["Aerospace Systems Research Institute"]
 readme = "README.md"
-packages = [{include = "ASRI_Simulator"}]
+packages = [{include = "body"}]
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -12,11 +12,10 @@ numpy = "^1.21.0"
 pandas = "^1.3.0"
 scipy = "^1.7.0"
 matplotlib = "^3.4.0"
-pillow = "^10.4.0"
+pillow = "^8.0.0"
 pygame = "^2.1.0"
 pyopengl = "^3.1.0"
 pyopengl-accelerate = "^3.1.0"
-openpyxl = "^3.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.0.0"
@@ -26,4 +25,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-pyrops = "ASRI_Simulator.launcher:main"
+pyrops = "launcher:main"
